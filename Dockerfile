@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 WORKDIR /app
 COPY target/cashout-0.0.1-SNAPSHOT.jar /app/cashout-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
