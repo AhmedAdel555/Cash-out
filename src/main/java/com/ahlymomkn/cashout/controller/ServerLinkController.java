@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/serverLink")
+@RequestMapping("/serverlink")
 public class ServerLinkController {
 
     private final ServerLinkService serverLinkService;
