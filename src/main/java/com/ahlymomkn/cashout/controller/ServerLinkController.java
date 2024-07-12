@@ -16,12 +16,12 @@ public class ServerLinkController {
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<ServerLink> updateServerLink(@PathVariable String id, @RequestBody String serverLink){
+    ResponseEntity<ServerLink> updateServerLink(@PathVariable Integer id, @RequestBody String serverLink){
    ServerLink updatedServerLink = serverLinkService.updateServerLink(id,serverLink);
     return ResponseEntity.ok(updatedServerLink);
 }
     @GetMapping("/{id}")
-    ResponseEntity<String> getServerLink(@PathVariable String id){
+    ResponseEntity<String> getServerLink(@PathVariable Integer id){
         String link = serverLinkService.getServerLink(id);
         return ResponseEntity.ok(link);
     }

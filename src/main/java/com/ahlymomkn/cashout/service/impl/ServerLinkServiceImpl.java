@@ -16,14 +16,14 @@ public class ServerLinkServiceImpl implements ServerLinkService {
 
 
     @Override
-    public ServerLink updateServerLink(String id, String newLink) {
+    public ServerLink updateServerLink(Integer id, String newLink) {
         ServerLink serverLink = serverLinkRepository.findById(id)
                 .orElse(new ServerLink(id, newLink));
         serverLink.setLink(newLink);
         return serverLinkRepository.save(serverLink);    }
 
     @Override
-    public String getServerLink(String id) {
+    public String getServerLink(Integer id) {
         return serverLinkRepository.findById(id)
                 .map(ServerLink::getLink)
                 .orElse(null);

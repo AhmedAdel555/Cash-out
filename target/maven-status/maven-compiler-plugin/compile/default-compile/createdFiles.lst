@@ -19,6 +19,7 @@ com\ahlymomkn\cashout\exception\ConflictException.class
 com\ahlymomkn\cashout\exception\GlobalExceptionHandler.class
 com\ahlymomkn\cashout\service\impl\NotificationServiceImpl.class
 com\ahlymomkn\cashout\exception\ResourceNotFoundException.class
+com\ahlymomkn\cashout\repository\ServerLinkRepository.class
 com\ahlymomkn\cashout\util\OTPStatus\PaidOTPState.class
 com\ahlymomkn\cashout\service\impl\AuthServiceImpl.class
 com\ahlymomkn\cashout\service\impl\BalanceServiceImpl.class
@@ -27,6 +28,7 @@ com\ahlymomkn\cashout\model\enums\OTPStatus.class
 com\ahlymomkn\cashout\service\AuthService.class
 com\ahlymomkn\cashout\CashoutApplication.class
 com\ahlymomkn\cashout\payload\NotificationResposeDTO.class
+com\ahlymomkn\cashout\service\ServerLinkService.class
 com\ahlymomkn\cashout\controller\UserController.class
 com\ahlymomkn\cashout\payload\TransactionAmountDTO.class
 com\ahlymomkn\cashout\util\OTPStatus\NewOTPState.class
@@ -35,13 +37,16 @@ com\ahlymomkn\cashout\payload\RegisterDTO.class
 com\ahlymomkn\cashout\service\UserService.class
 com\ahlymomkn\cashout\util\EducationBalanceClient.class
 com\ahlymomkn\cashout\repository\UserRepository.class
+com\ahlymomkn\cashout\model\entity\ServerLink.class
 com\ahlymomkn\cashout\model\entity\OTP$1.class
 com\ahlymomkn\cashout\service\NotificationService.class
+com\ahlymomkn\cashout\service\impl\ServerLinkServiceImpl.class
 com\ahlymomkn\cashout\exception\InvalidCredentials.class
 com\ahlymomkn\cashout\payload\UserDTO.class
 com\ahlymomkn\cashout\model\entity\User.class
 com\ahlymomkn\cashout\payload\OTPDetailsDTO.class
 com\ahlymomkn\cashout\util\JwtTokenProvider.class
+com\ahlymomkn\cashout\controller\ServerLinkController.class
 com\ahlymomkn\cashout\model\enums\Gender.class
 com\ahlymomkn\cashout\repository\OTPRepository.class
 com\ahlymomkn\cashout\util\OTPStatus\ExpiredOTPState.class

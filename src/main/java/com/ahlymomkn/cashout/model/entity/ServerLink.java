@@ -1,29 +1,29 @@
 package com.ahlymomkn.cashout.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+
 
 @Entity
-@Table(name = "ServerLink")
+@Table(name = "server_link")
 public class ServerLink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String id;
+    Integer id;
     String link;
 
-    public ServerLink(String id, String link) {
+    public ServerLink(Integer id, String link) {
         this.id = id;
         this.link = link;
     }
 
-    public String getId() {
+    public ServerLink() {
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

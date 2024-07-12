@@ -5,6 +5,7 @@ D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\controller\AuthC
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\controller\BalanceController.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\controller\NotificationController.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\controller\OTPController.java
+D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\controller\ServerLinkController.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\controller\UserController.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\exception\ConflictException.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\exception\GlobalExceptionHandler.java
@@ -13,6 +14,7 @@ D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\exception\Invali
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\exception\ResourceNotFoundException.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\model\entity\Notification.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\model\entity\OTP.java
+D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\model\entity\ServerLink.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\model\entity\User.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\model\enums\Gender.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\model\enums\OTPStatus.java
@@ -28,6 +30,7 @@ D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\payload\Transact
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\payload\UserDTO.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\repository\NotificationRepository.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\repository\OTPRepository.java
+D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\repository\ServerLinkRepository.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\repository\UserRepository.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\AuthService.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\BalanceService.java
@@ -35,9 +38,11 @@ D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\impl\Aut
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\impl\BalanceServiceImpl.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\impl\NotificationServiceImpl.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\impl\OTPServiceImpl.java
+D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\impl\ServerLinkServiceImpl.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\impl\UserServiceImpl.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\NotificationService.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\OTPService.java
+D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\ServerLinkService.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\service\UserService.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\util\CodeGenerator.java
 D:\Github projects\Cash-out\src\main\java\com\ahlymomkn\cashout\util\CustomUserDetailsService.java
