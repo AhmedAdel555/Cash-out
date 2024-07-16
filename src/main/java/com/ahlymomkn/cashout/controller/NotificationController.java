@@ -38,8 +38,8 @@ public class NotificationController {
     }
 
     @PostMapping("/balanceNotifications")
-    public ResponseEntity<String> saveBalanceNotification(@Valid @RequestBody List<NotificationRequestDTO> balanceNotificationDTOList) throws BadRequestException {
-        notificationService.saveBalanceNotificationsList(balanceNotificationDTOList);
+    public ResponseEntity<String> saveBalanceNotification(@Valid @RequestBody NotificationRequestDTO balanceNotificationDTO) throws BadRequestException {
+        notificationService.saveBalanceNotificationsList(balanceNotificationDTO);
         return ResponseEntity.ok("Process Completed Successfully");
     }
 }

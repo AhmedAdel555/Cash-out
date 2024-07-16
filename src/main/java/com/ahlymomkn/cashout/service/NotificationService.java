@@ -12,7 +12,7 @@ import java.util.List;
 public interface NotificationService {
     public List<Notification> retrieveUserNotifications(Integer userId);
 
-    public void saveBalanceNotificationsList(List<NotificationRequestDTO> balanceNotificationDTOList) throws BadRequestException;
+    public void saveBalanceNotificationsList(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException;
 
     public void SaveNotification(User user, String notificationTitle , String notificationBody);
 }

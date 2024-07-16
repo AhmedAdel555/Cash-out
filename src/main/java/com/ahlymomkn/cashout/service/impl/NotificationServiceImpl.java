@@ -11,12 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class NotificationServiceImpl implements NotificationService {
-
+    @Override
+    public void SaveNotification(User user, String notificationTitle, String notificationBody) {
+    }
     private final NotificationRepository notificationRepository;
     private final UserRepository userRepository;
 
@@ -25,35 +28,26 @@ public class NotificationServiceImpl implements NotificationService {
         this.notificationRepository = notificationRepository;
         this.userRepository = userRepository;
     }
-
     @Override
     @Transactional
     public List<Notification> retrieveUserNotifications(Integer userId) {
         User user = userRepository.findById(userId).orElseThrow();
         return notificationRepository.findAllUserNotification(user.getId());
     }
-
     @Override
     @Transactional
-    public void saveBalanceNotificationsList(List<NotificationRequestDTO> balanceNotificationDTOList) throws BadRequestException {
-        // check the existing of the user
-        // if one or more users dosen't exist the process will not be completed and rollback
-        for(NotificationRequestDTO balanceNotification: balanceNotificationDTOList){
-            Optional<User> user = userRepository.findByNationalId(balanceNotification.getNationalId());
+    public void saveBalanceNotificationsList(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException {
+            Optional<User> user = userRepository.findByNationalId(balanceNotificationDTO.getNationalId());
             if (user.isEmpty()){
-                throw new BadRequestException("user with national id" + balanceNotification.getNationalId());
+                throw new BadRequestException("user with national id" + balanceNotificationDTO.getNationalId());
             }
-            SaveNotification(user.get(), balanceNotification.getTitle(), balanceNotification.getBody());
-        }
+            Notification notification = new Notification();
+            notification.setTitle(balanceNotificationDTO.getTitle());
+            notification.setBody(balanceNotificationDTO.getBody());
+            notification.setEffectiveDate(LocalDateTime.now());
+            notification.setUser(user.get());
+            notificationRepository.save(notification);
     }
 
-    @Override
-    @Transactional
-    public void SaveNotification(User user, String notificationTitle ,String notificationBody) {
-        Notification notification = new Notification();
-        notification.setTitle(notificationTitle);
-        notification.setBody(notificationBody);
-        notification.setUser(user);
-        notificationRepository.save(notification);
-    }
+
 }

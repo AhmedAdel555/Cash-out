@@ -1,7 +1,10 @@
 package com.ahlymomkn.cashout.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +21,9 @@ public class Notification {
     @Column(name = "body", nullable = false)
     private String body;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    public LocalDateTime effectiveDate;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -28,6 +34,14 @@ public class Notification {
     public Notification(String title, String body) {
         this.title = title;
         this.body = body;
+    }
+
+    public LocalDateTime getEffectiveDate() {
+        return effectiveDate;
+    }
+
+    public void setEffectiveDate(LocalDateTime effectiveDate) {
+        this.effectiveDate = effectiveDate;
     }
 
     public Integer getId() {
