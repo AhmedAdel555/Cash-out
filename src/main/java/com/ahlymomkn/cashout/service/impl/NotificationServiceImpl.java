@@ -34,9 +34,10 @@ public class NotificationServiceImpl implements NotificationService {
         User user = userRepository.findById(userId).orElseThrow();
         return notificationRepository.findAllUserNotification(user.getId());
     }
+
     @Override
     @Transactional
-    public void saveBalanceNotificationsList(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException {
+    public void saveBalanceNotification(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException {
             Optional<User> user = userRepository.findByNationalId(balanceNotificationDTO.getNationalId());
             if (user.isEmpty()){
                 throw new BadRequestException("user with national id" + balanceNotificationDTO.getNationalId());
