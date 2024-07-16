@@ -4,6 +4,7 @@ import com.ahlymomkn.cashout.model.entity.Notification;
 import com.ahlymomkn.cashout.model.entity.User;
 import com.ahlymomkn.cashout.payload.NotificationRequestDTO;
 import org.apache.coyote.BadRequestException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface NotificationService {
     public List<Notification> retrieveUserNotifications(Integer userId);
 
-    public void saveBalanceNotification(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException;
+    public ResponseEntity<String> saveBalanceNotification(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException;
 
     public void SaveNotification(User user, String notificationTitle , String notificationBody);
 }

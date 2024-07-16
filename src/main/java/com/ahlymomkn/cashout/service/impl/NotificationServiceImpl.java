@@ -8,6 +8,7 @@ import com.ahlymomkn.cashout.repository.UserRepository;
 import com.ahlymomkn.cashout.service.NotificationService;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,7 +38,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     @Transactional
-    public void saveBalanceNotification(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException {
+    public ResponseEntity<String> saveBalanceNotification(NotificationRequestDTO balanceNotificationDTO) throws BadRequestException {
             Optional<User> user = userRepository.findByNationalId(balanceNotificationDTO.getNationalId());
             if (user.isEmpty()){
                 throw new BadRequestException("user with national id" + balanceNotificationDTO.getNationalId());
@@ -48,7 +49,7 @@ public class NotificationServiceImpl implements NotificationService {
             notification.setEffectiveDate(LocalDateTime.now());
             notification.setUser(user.get());
             notificationRepository.save(notification);
+            return  ResponseEntity.ok("Process Completed Successfully");
     }
-
 
 }
