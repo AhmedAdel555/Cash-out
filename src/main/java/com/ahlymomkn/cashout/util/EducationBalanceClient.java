@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-@FeignClient(name = "education-balance", url = "http://localhost:8080")
+@FeignClient(name = "education-balance", url = "http://balanceportal.runasp.net")
 public interface EducationBalanceClient {
 
-    @GetMapping("/balance")
-    public ResponseEntity<BigDecimal> findUserBalance(@RequestParam("nationalId") String nationalId);
+    @GetMapping("/api/ProfessorTransaction/transactions/{nationalId}/last-balance")
+    public ResponseEntity<Integer> findUserBalance(@PathVariable("nationalId") String nationalId);
 
     @PostMapping("/authorize-amount")
     public ResponseEntity<String> authorizeAmount(@RequestBody TransactionAmountDTO transactionAmountDTO);
 
-    @PostMapping("/cashout")
+    @PostMapping("/api/ProfessorTransaction/transactions")
     public ResponseEntity<String> cashoutAmount(@RequestBody TransactionAmountDTO transactionAmountDTO);
 
     @PostMapping("/reverse-amounts")

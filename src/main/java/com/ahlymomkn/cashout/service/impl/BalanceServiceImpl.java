@@ -11,7 +11,11 @@ import com.ahlymomkn.cashout.util.CodeGenerator;
 import com.ahlymomkn.cashout.util.EducationBalanceClient;
 import jakarta.transaction.Transactional;
 import org.apache.coyote.BadRequestException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -23,6 +27,8 @@ public class BalanceServiceImpl implements BalanceService {
     private final OTPRepository otpRepository;
 
     private final NotificationService notificationService;
+    private static final Logger logger = LoggerFactory.getLogger(BalanceService.class);
+
 
     @Autowired
     public BalanceServiceImpl(EducationBalanceClient educationBalanceClient, OTPRepository otpRepository, NotificationService notificationService) {
@@ -32,9 +38,14 @@ public class BalanceServiceImpl implements BalanceService {
     }
 
     @Override
-    public BigDecimal findUserBalance(User user) {
-        return BigDecimal.valueOf(20000);
-//        return educationBalanceClient.findUserBalance(user.getNationalId()).getBody();
+    public ResponseEntity<Integer> findUserBalance(User user) {
+        logger.info("Fetching balance for nationalId: {}", user.getNationalId());
+        ResponseEntity<Integer> response = educationBalanceClient.findUserBalance(user.getNationalId());
+
+        logger.info("Received response: {}", response);
+
+        // return BigDecimal.valueOf(20000);
+     return response;
     }
 
     @Override
@@ -61,11 +72,11 @@ public class BalanceServiceImpl implements BalanceService {
         }
         otp.paid();
         otpRepository.save(otp);
-//        TransactionAmountDTO transactionAmountDTO = new TransactionAmountDTO(otp.getAmount(), otp.getUser().getNationalId());
-//        ResponseEntity<String> response = educationBalanceClient.cashoutAmount(transactionAmountDTO);
-//        if(!response.getStatusCode().equals(HttpStatus.OK)){
-//            throw new BadRequestException(response.getBody());
-//        }
+        TransactionAmountDTO transactionAmountDTO = new TransactionAmountDTO(otp.getUser().getNationalId(),"123456","12345666",otp.getAmount(),"Debit","Approved");
+        ResponseEntity<String> response = educationBalanceClient.cashoutAmount(transactionAmountDTO);
+        if(!response.getStatusCode().equals(HttpStatus.OK)){
+            throw new BadRequestException(response.getBody());
+        }
         String notificationBody = "Your withdrawal of " + otp.getAmount() + " has been completed successfully.";
         String notificationTitle = "withdrawal been completed successfully";
         notificationService.SaveNotification(otp.getUser(), notificationTitle ,notificationBody);

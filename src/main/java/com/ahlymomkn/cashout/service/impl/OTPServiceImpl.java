@@ -40,7 +40,7 @@ public class OTPServiceImpl implements OTPService {
         List<TransactionAmountDTO> transactionAmountDTOList = new ArrayList<>();
         for (OTP otp : otpList) {
             otp.expired();
-            TransactionAmountDTO transactionAmountDTO = new TransactionAmountDTO(otp.getAmount(), otp.getUser().getNationalId());
+            TransactionAmountDTO transactionAmountDTO = new TransactionAmountDTO(otp.getUser().getNationalId(),otp.getAmount());
             transactionAmountDTOList.add(transactionAmountDTO);
         }
         otpRepository.saveAll(otpList);
