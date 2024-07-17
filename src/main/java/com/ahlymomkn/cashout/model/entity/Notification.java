@@ -21,9 +21,6 @@ public class Notification {
     @Column(name = "body", nullable = false)
     private String body;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    public LocalDateTime effectiveDate;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -36,13 +33,7 @@ public class Notification {
         this.body = body;
     }
 
-    public LocalDateTime getEffectiveDate() {
-        return effectiveDate;
-    }
 
-    public void setEffectiveDate(LocalDateTime effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
 
     public Integer getId() {
         return id;

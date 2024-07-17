@@ -46,7 +46,6 @@ public class NotificationServiceImpl implements NotificationService {
             Notification notification = new Notification();
             notification.setTitle(balanceNotificationDTO.getTitle());
             notification.setBody(balanceNotificationDTO.getBody());
-            notification.setEffectiveDate(LocalDateTime.now());
             notification.setUser(user.get());
             notificationRepository.save(notification);
             return  ResponseEntity.ok("Process Completed Successfully");
