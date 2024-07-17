@@ -33,7 +33,11 @@ public class Notification {
         this.body = body;
     }
 
-
+    public Notification(String title, String body, User user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
+    }
 
     public Integer getId() {
         return id;

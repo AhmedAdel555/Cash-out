@@ -20,6 +20,9 @@ import java.util.Optional;
 public class NotificationServiceImpl implements NotificationService {
     @Override
     public void SaveNotification(User user, String notificationTitle, String notificationBody) {
+
+        Notification notification = new Notification(notificationTitle,notificationBody,user);
+        notificationRepository.save(notification);
     }
     private final NotificationRepository notificationRepository;
     private final UserRepository userRepository;
